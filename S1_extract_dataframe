@@ -1,0 +1,2 @@
+versicolor_petal_length = iris_df['petal_length'][iris_df['species'] == "versicolor"]
+virginica_petal_length = iris_df['petal_length'][iris_df['species'] == "virginica"]
