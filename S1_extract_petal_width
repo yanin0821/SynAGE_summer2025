@@ -1,0 +1,3 @@
+setosa_petal_width = iris_df['petal_width'][iris_df['species'] == "setosa"]
+versicolor_petal_width = iris_df['petal_width'][iris_df['species'] == "versicolor"]
+virginica_petal_width = iris_df['petal_width'][iris_df['species'] == "virginica"]
