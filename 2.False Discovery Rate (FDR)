@@ -1,0 +1,35 @@
+# Extract petal lengths for each species
+setosa_petal_length = iris_df['petal_length'][iris_df['species'] == 'setosa']
+versicolor_petal_length = iris_df['petal_length'][iris_df['species'] == 'versicolor']
+virginica_petal_length = iris_df['petal_length'][iris_df['species'] == 'virginica']
+
+# Perform pairwise t-tests
+p_values = []
+comparisons = []
+
+# Setosa vs Versicolor
+t_stat, p_value = stats.ttest_ind(setosa_petal_length, versicolor_petal_length)
+p_values.append(p_value)
+comparisons.append('setosa vs versicolor')
+
+# Setosa vs Virginica
+t_stat, p_value = stats.ttest_ind(setosa_petal_length, virginica_petal_length)
+p_values.append(p_value)
+comparisons.append('setosa vs virginica')
+
+# Versicolor vs Virginica
+t_stat, p_value = stats.ttest_ind(versicolor_petal_length, virginica_petal_length)
+p_values.append(p_value)
+comparisons.append('versicolor vs virginica')
+
+# Apply Bonferroni correction
+reject, corrected_p_values, _, _ = multipletests(p_values, alpha = 0.05, method='fdr_bh')
+
+# Create a table
+results = pd.DataFrame({
+    'Comparison': comparisons,
+    'Uncorrected P-value': p_values,
+    'Corrected P-value': corrected_p_values
+})
+
+results
