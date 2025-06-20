@@ -1,0 +1,5 @@
+# Mann-Whitney U test between versicolor and virginica petal widths
+u_stat, p_value = stats.mannwhitneyu(setosa_petal_width, versicolor_petal_width)
+
+print(f"U-statistic: {u_stat}")
+print(f"P-value: {p_value}")
