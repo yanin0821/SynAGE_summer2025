@@ -1,0 +1,12 @@
+# Calculate mean
+bootstrap_mean = np.mean(bootstrap_means)
+
+# calculate standard deviation
+bootstrap_std = np.std(bootstrap_means)
+
+# Calculate the 95% confidence interval
+bootstrap_CI = np.percentile(bootstrap_means, [2.5, 97.5])
+
+print(f"Bootstrap mean: {bootstrap_mean:.4f}")
+print(f"Bootstrap standard deviation: {bootstrap_std:.4f}")
+print(f"Bootstrap 95% confidence interval: {bootstrap_CI}")
