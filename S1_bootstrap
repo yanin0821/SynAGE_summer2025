@@ -1,0 +1,24 @@
+# Perform bootstrapping on the random sample of setosa petal lengths
+n_bootstrap_samples = 1000
+bootstrap_means = []
+
+for _ in range(n_bootstrap_samples):
+  # Sample with replacement from the random setosa sample (Sample with replacement)
+  bootstrap_sample = setosa_random.sample(n= 5 , replace= True)
+  bootstrap_means.append(bootstrap_sample.mean())
+
+# Plot histograms
+fig, axs = plt.subplots(1,2, figsize=(8, 4), sharex=True, sharey=True)
+
+# Histogram for all setosa petal lengths
+axs[0].hist(setosa_petal_length, bins=bin_edges, density=True,  color='blue', edgecolor='black')
+axs[0].set_title('Actual Setosa')
+axs[0].set_ylabel('Density')
+
+# Histogram for the randomed setosa
+axs[1].hist(bootstrap_means, bins=bin_edges, density=True, color='orange', edgecolor='black')
+axs[1].set_title('Bootstrapped Setosa')
+axs[1].set_ylabel('Density')
+
+plt.tight_layout()
+plt.show()
