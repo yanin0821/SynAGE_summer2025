@@ -1,0 +1,2 @@
+Petal length is predicted by petal width (p = 0.048) + 0.8655. 
+Sepal width and sepal length are not predictive of petal length as we can see that p >0.05. 
