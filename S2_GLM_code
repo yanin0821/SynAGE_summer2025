@@ -1,0 +1,16 @@
+# 1. Get a dataframe only with setosa
+versicolor_df = iris_df[iris_df['species'] == 'versicolor'].copy()
+
+# 2. Define features (X) and target (y)
+features_versicolor = ['sepal_length', 'sepal_width', 'petal_width']
+X_versicolor = versicolor_df[features_versicolor]
+y_versicolor = versicolor_df['petal_length']
+
+# 3. Add a constant (intercept) to the predictor variables
+X_versicolor = sm.add_constant(X_versicolor)
+
+# 4. Fit the GLM model (OLS)
+glm_model = sm.GLM(y_versicolor, X_versicolor).fit()
+
+# Print the model summary
+print(glm_model.summary())
