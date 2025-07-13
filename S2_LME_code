@@ -1,0 +1,7 @@
+import statsmodels.formula.api as smf
+
+# Fit the LME model with petal_length as the dependent variable, petal_width as a fixed effect, and batch_number as a random effect (intercept)
+lme_model = smf.mixedlm("petal_length ~ petal_width", versicolor_generate, groups=versicolor_generate["batch_number"]).fit()
+
+# Print the model summary
+print(lme_model.summary())
